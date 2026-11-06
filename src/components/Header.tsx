@@ -65,6 +65,18 @@ export const Header: React.FC<HeaderProps> = ({ stats }) => {
               <span className="text-[11px] font-mono text-ink-muted">3 Autonomous Entities</span>
             </div>
 
+            {/* Architecture Diagram Link */}
+            <a
+              href="/architecture.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 rounded border border-paypal-blue/30 bg-blue-50/70 hover:bg-blue-100 text-paypal-dark font-mono text-[11px] font-medium flex items-center space-x-1 transition shadow-xs"
+              title="Open full interactive architecture diagram"
+            >
+              <span>Architecture Diagram</span>
+              <span className="text-[10px]">↗</span>
+            </a>
+
           </div>
 
         </div>

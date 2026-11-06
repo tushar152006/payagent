@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PayAgent AI — Architecture Diagram</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            canvas: '#FAF9F5',
+            stone: {
+              50: '#FDFCF9',
+              100: '#FAF9F5',
+              200: '#F1EFEA',
+              300: '#E4DFD5',
+              400: '#C8C1B4',
+              700: '#433D35',
+              800: '#2A2723',
+              900: '#141413'
+            },
+            paypal: {
+              blue: '#0070BA',
+              dark: '#003087',
+              navy: '#001C44',
+              cyan: '#00CFDE'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FAF9F5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .grid-pattern {
+      background-size: 24px 24px;
+      background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="p-6 md:p-10 min-h-screen flex flex-col items-center justify-center grid-pattern">
+
+  <!-- Action Bar for Easy Screenshotting -->
+  <div class="w-full max-w-5xl mb-4 flex items-center justify-between bg-stone-900 text-white px-5 py-3 rounded-2xl shadow-lg border border-stone-800">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span class="text-xs font-mono text-stone-200">Interactive Architecture Diagram Workbench</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-xs text-stone-400 hidden sm:inline">Use <kbd class="px-1.5 py-0.5 bg-stone-800 border border-stone-700 rounded text-stone-300 font-mono">Win + Shift + S</kbd> to screenshot, or</span>
+      <button id="downloadBtn" onclick="exportDiagramPNG()" class="px-3.5 py-1.5 bg-paypal-blue hover:bg-blue-600 text-white rounded-xl text-xs font-medium font-mono flex items-center gap-1.5 transition shadow-sm">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        Download High-Res PNG
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Architecture Container -->
+  <div id="architectureCard" class="w-full max-w-5xl bg-white rounded-3xl border border-stone-200 shadow-xl overflow-hidden p-8 md:p-12 relative">
+    
+    <!-- Top Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between pb-8 mb-8 border-b border-stone-200 gap-4">
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-blue-50 text-paypal-dark border border-blue-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-paypal-blue animate-pulse"></span>
+            PAYAGENT AI ARCHITECTURE v2.4
+          </span>
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-mono font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">
+            PayPal Orders API v2
+          </span>
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-mono font-medium bg-purple-50 text-purple-800 border border-purple-200">
+            Sub-16ms Latency
+          </span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-serif text-stone-900 tracking-tight">
+          Deterministic Spend Firewall & Settlement Protocol
+        </h1>
+        <p class="text-sm text-stone-500 mt-1">
+          Zero-Trust Pre-Execution Intercept ➔ 4-Gate Deterministic Evaluation ➔ Ephemeral Settlement
+        </p>
+      </div>
+
+      <!-- Quick Metrics Badge -->
+      <div class="flex items-center gap-3 bg-stone-50 border border-stone-200 rounded-2xl p-3">
+        <div class="text-right">
+          <div class="text-[10px] font-mono text-stone-500 uppercase tracking-wider">Static Credentials</div>
+          <div class="text-sm font-semibold text-rose-600 font-mono">0 Exposed to AI</div>
+        </div>
+        <div class="h-8 w-px bg-stone-200"></div>
+        <div class="text-right">
+          <div class="text-[10px] font-mono text-stone-500 uppercase tracking-wider">Buyer Protection</div>
+          <div class="text-sm font-semibold text-emerald-700 font-mono">180-Day Guarantee</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIAGRAM FLOW -->
+    <div class="space-y-6">
+
+      <!-- STAGE 1: Autonomous Agent Layer -->
+      <div class="relative bg-gradient-to-r from-stone-50 via-white to-stone-50 border border-stone-200 rounded-2xl p-6 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-stone-900 text-white flex items-center justify-center font-mono font-bold text-xs">
+              01
+            </div>
+            <div>
+              <h3 class="font-serif text-lg font-semibold text-stone-900">Untrusted Zone: Autonomous Agent Swarm</h3>
+              <p class="text-xs text-stone-500">Autonomous workers execute enterprise workflows without access to static payment rails</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-200 rounded-lg text-xs font-mono">
+            ⚠️ Untrusted Environment
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div class="bg-white border border-stone-200 rounded-xl p-3 shadow-xs">
+            <div class="text-xs font-mono text-stone-500 uppercase">DevOps AutoScaler</div>
+            <div class="text-sm font-medium text-stone-900 mt-0.5">Cloud Infra & GPU Clusters</div>
+            <div class="text-xs font-mono text-paypal-dark mt-2 bg-blue-50/60 rounded px-2 py-1 inline-block">
+              POST /intent { $19.00 }
+            </div>
+          </div>
+          <div class="bg-white border border-stone-200 rounded-xl p-3 shadow-xs">
+            <div class="text-xs font-mono text-stone-500 uppercase">Procurement Worker</div>
+            <div class="text-sm font-medium text-stone-900 mt-0.5">SaaS License Provisioning</div>
+            <div class="text-xs font-mono text-paypal-dark mt-2 bg-blue-50/60 rounded px-2 py-1 inline-block">
+              POST /intent { $120.00 }
+            </div>
+          </div>
+          <div class="bg-white border border-stone-200 rounded-xl p-3 shadow-xs">
+            <div class="text-xs font-mono text-stone-500 uppercase">Web Data Scraper</div>
+            <div class="text-sm font-medium text-stone-900 mt-0.5">API Credits & Proxies</div>
+            <div class="text-xs font-mono text-paypal-dark mt-2 bg-blue-50/60 rounded px-2 py-1 inline-block">
+              POST /intent { $35.00 }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONNECTOR 1 -->
+      <div class="flex flex-col items-center justify-center -my-2 relative z-10">
+        <div class="h-6 w-0.5 bg-stone-300"></div>
+        <div class="px-3 py-1 bg-paypal-dark text-white text-[11px] font-mono rounded-full shadow-sm flex items-center gap-1.5 border border-paypal-blue">
+          <svg class="w-3 h-3 text-paypal-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+          Pre-Execution Interception Envelope (Intent Payload)
+        </div>
+        <div class="h-6 w-0.5 bg-stone-300"></div>
+      </div>
+
+      <!-- STAGE 2: 4-Gate Deterministic Firewall -->
+      <div class="relative bg-gradient-to-br from-blue-900 via-paypal-dark to-stone-900 text-white rounded-2xl p-6 shadow-xl border border-blue-800">
+        <div class="flex items-center justify-between mb-5">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-paypal-blue/30 border border-paypal-cyan/40 text-paypal-cyan flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-serif text-xl font-bold tracking-tight text-white">PayAgent Pre-Authorization Firewall</h3>
+                <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded text-[10px] font-mono">
+                  ACTIVE • 100% Deterministic
+                </span>
+              </div>
+              <p class="text-xs text-blue-200">Sequential multi-tier evaluation pipeline completed before single dollar leaves treasury</p>
+            </div>
+          </div>
+          <span class="hidden md:inline-flex items-center text-xs font-mono text-blue-300 bg-white/5 border border-white/10 px-3 py-1 rounded-lg">
+            Evaluation Waterfall: 14ms
+          </span>
+        </div>
+
+        <!-- 4 Sequential Gate Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+          
+          <!-- Gate 01 -->
+          <div class="bg-white/10 hover:bg-white/15 transition border border-white/15 rounded-xl p-3.5 backdrop-blur-sm">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-mono text-cyan-300 uppercase tracking-wider font-semibold">GATE 01</span>
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            </div>
+            <div class="text-sm font-semibold text-white">Semantic Intent</div>
+            <p class="text-xs text-blue-200 mt-1 leading-relaxed">
+              Cosine vector distance matching goal vs SKU. 6-engine regex halts DAN, overrides & leaks.
+            </p>
+            <div class="mt-3 pt-2 border-t border-white/10 flex justify-between items-center text-[10px] font-mono text-emerald-300">
+              <span>Cosine Threshold</span>
+              <span class="font-bold">≥ 0.85</span>
+            </div>
+          </div>
+
+          <!-- Gate 02 -->
+          <div class="bg-white/10 hover:bg-white/15 transition border border-white/15 rounded-xl p-3.5 backdrop-blur-sm">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-mono text-cyan-300 uppercase tracking-wider font-semibold">GATE 02</span>
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            </div>
+            <div class="text-sm font-semibold text-white">Vendor Auth</div>
+            <p class="text-xs text-blue-200 mt-1 leading-relaxed">
+              Strict FQDN allowlist with Levenshtein typosquat check blocking clone domains.
+            </p>
+            <div class="mt-3 pt-2 border-t border-white/10 flex justify-between items-center text-[10px] font-mono text-emerald-300">
+              <span>Domain Check</span>
+              <span class="font-bold">Allowlisted</span>
+            </div>
+          </div>
+
+          <!-- Gate 03 -->
+          <div class="bg-white/10 hover:bg-white/15 transition border border-white/15 rounded-xl p-3.5 backdrop-blur-sm">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-mono text-cyan-300 uppercase tracking-wider font-semibold">GATE 03</span>
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            </div>
+            <div class="text-sm font-semibold text-white">Budget Ceilings</div>
+            <p class="text-xs text-blue-200 mt-1 leading-relaxed">
+              Per-task cap ($100 max) + monthly allocation ceiling. Cryptographic SKU line-item lock.
+            </p>
+            <div class="mt-3 pt-2 border-t border-white/10 flex justify-between items-center text-[10px] font-mono text-emerald-300">
+              <span>Slippage Limit</span>
+              <span class="font-bold">$0.00</span>
+            </div>
+          </div>
+
+          <!-- Gate 04 -->
+          <div class="bg-white/10 hover:bg-white/15 transition border border-white/15 rounded-xl p-3.5 backdrop-blur-sm">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-mono text-cyan-300 uppercase tracking-wider font-semibold">GATE 04</span>
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            </div>
+            <div class="text-sm font-semibold text-white">Circuit Breaker</div>
+            <p class="text-xs text-blue-200 mt-1 leading-relaxed">
+              Sliding 60s frequency throttle (max 5 tx/min) & 10-min rolling smurfing velocity cap.
+            </p>
+            <div class="mt-3 pt-2 border-t border-white/10 flex justify-between items-center text-[10px] font-mono text-emerald-300">
+              <span>Throttle State</span>
+              <span class="font-bold">Disarmed</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CONNECTOR 2: Dual Branching Decision -->
+      <div class="grid grid-cols-2 gap-6 relative z-10">
+        
+        <!-- Left Connector: Failure -->
+        <div class="flex flex-col items-center">
+          <div class="h-6 w-0.5 bg-rose-400"></div>
+          <div class="px-3 py-1 bg-rose-50 text-rose-700 text-[11px] font-mono rounded-full border border-rose-300 flex items-center gap-1 font-semibold">
+            <span>✕</span> ANY GATE VIOLATION (Breach / Anomaly)
+          </div>
+          <div class="h-6 w-0.5 bg-rose-400"></div>
+        </div>
+
+        <!-- Right Connector: Success -->
+        <div class="flex flex-col items-center">
+          <div class="h-6 w-0.5 bg-emerald-400"></div>
+          <div class="px-3 py-1 bg-emerald-50 text-emerald-800 text-[11px] font-mono rounded-full border border-emerald-300 flex items-center gap-1 font-semibold">
+            <span>✓</span> ALL 4 GATES PASSED (Verified Safe)
+          </div>
+          <div class="h-6 w-0.5 bg-emerald-400"></div>
+        </div>
+
+      </div>
+
+      <!-- STAGE 3: Dual Outcomes -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Left Outcome: Emergency Freeze -->
+        <div class="bg-rose-50/50 border border-rose-200 rounded-2xl p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-lg">
+              ✕
+            </div>
+            <div>
+              <h4 class="font-serif text-lg font-bold text-rose-950">Deterministic Emergency Freeze</h4>
+              <p class="text-xs text-rose-700">Immediate defense response to jailbreaks, smurfing & runaway loops</p>
+            </div>
+          </div>
+          
+          <ul class="space-y-2 mt-4 text-xs text-rose-900">
+            <li class="flex items-start gap-2">
+              <span class="font-bold text-rose-600 font-mono">•</span>
+              <span><strong>Zero Capital Moved:</strong> Transaction aborted in under 16ms before payment rails engage.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-bold text-rose-600 font-mono">•</span>
+              <span><strong>Agent Session Suspended:</strong> Offending agent entity key revoked to halt recursive retries.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-bold text-rose-600 font-mono">•</span>
+              <span><strong>Audit Ledger Forensic Trail:</strong> Threat risk score and trigger condition recorded for compliance.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-bold text-rose-600 font-mono">•</span>
+              <span><strong>Optional Supervisory Escrow:</strong> High-risk tasks routed to Human-in-the-Loop review.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right Outcome: Ephemeral PayPal Settlement -->
+        <div class="bg-emerald-50/50 border border-emerald-200 rounded-2xl p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-lg">
+              ✓
+            </div>
+            <div>
+              <h4 class="font-serif text-lg font-bold text-emerald-950">Ephemeral PayPal Order v2 Settlement</h4>
+              <p class="text-xs text-emerald-700">Scoped, self-destructing voucher authorization minted for the merchant</p>
+            </div>
+          </div>
+
+          <ul class="space-y-2 mt-4 text-xs text-emerald-950">
+            <li class="flex items-start gap-2">
+              <span class="font-bold text-emerald-600 font-mono">•</span>
+              <span><strong>15-Minute Auto-Destruct (TTL):</strong> Authorization expires automatically if unused by merchant.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-bold text-emerald-600 font-mono">•</span>
+              <span><strong>$0.00 Slippage Tolerance:</strong> Hard-locked to approved cart items; excess charges rejected by API.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-bold text-emerald-600 font-mono">•</span>
+              <span><strong>Cryptographic SKU & FQDN Binding:</strong> Cannot be redirected to rogue third-party payment gateways.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-bold text-emerald-600 font-mono">•</span>
+              <span><strong>180-Day Dispute Protection:</strong> Enterprise treasury backed by PayPal global buyer guarantees.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- FOOTER: Academic Benchmarks -->
+      <div class="pt-6 border-t border-stone-200 flex flex-col md:flex-row items-center justify-between gap-4 text-stone-500 text-xs">
+        <div class="flex flex-wrap items-center gap-4">
+          <span class="font-mono text-stone-700 font-semibold">Academic Foundations:</span>
+          <span class="px-2 py-0.5 bg-stone-100 rounded text-stone-700 border border-stone-200 font-mono">Martin Kleppmann (DDIA)</span>
+          <span class="px-2 py-0.5 bg-stone-100 rounded text-stone-700 border border-stone-200 font-mono">Michael Nygard (Release It!)</span>
+          <span class="px-2 py-0.5 bg-stone-100 rounded text-stone-700 border border-stone-200 font-mono">Google SRE Zero-Trust</span>
+          <span class="px-2 py-0.5 bg-stone-100 rounded text-stone-700 border border-stone-200 font-mono">OWASP LLM01 / LLM06</span>
+        </div>
+        <div class="font-mono text-[11px] text-stone-400">
+          Built for PayPal AI Hackathon 2026
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function exportDiagramPNG() {
+      const btn = document.getElementById('downloadBtn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = 'Rendering 2x PNG...';
+      btn.disabled = true;
+
+      const element = document.getElementById('architectureCard');
+      html2canvas(element, {
+        scale: 2, // 2x retina crisp rendering
+        useCORS: true,
+        backgroundColor: '#FFFFFF',
+        logging: false
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'architecture.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+
+        btn.innerHTML = '✓ Downloaded!';
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }, 2000);
+      }).catch(err => {
+        console.error(err);
+        btn.innerHTML = 'Error - Use Snipping Tool';
+        btn.disabled = false;
+      });
+    }
+  </script>
+
+</body>
+</html>

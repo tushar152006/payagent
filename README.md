@@ -52,6 +52,13 @@ Instead:
 
 ## 3. Architecture Overview
 
+<p align="center">
+  <img src="public/architecture.png" alt="PayAgent AI Architecture Diagram" width="100%" />
+</p>
+
+<details>
+<summary>📋 Click to view Text Architecture Flow (ASCII Spec)</summary>
+
 ```
 ┌────────────────────────────────────────────────────────┐
 │             AUTONOMOUS AGENT INTENT                    │
@@ -91,6 +98,7 @@ Instead:
   └──────────────────────┘      │ • 180-Day Guarantee  │
                                 └──────────────────────┘
 ```
+</details>
 
 ---
 
