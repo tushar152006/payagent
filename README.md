@@ -12,6 +12,13 @@
 
 ---
 
+## ⚡ Live Demo & Judge Evaluation Links
+* 🌐 **Live Hosted Demo**: [**https://tushar152006.github.io/payagent/**](https://tushar152006.github.io/payagent/) *(Zero install required — runs directly in browser)*
+* 💻 **Local Setup**: Clone & run in 30 seconds via `npm install && npm run dev` ([See Instructions](#5-quickstart--judge-evaluation-guide))
+* 🧪 **6 Interactive Benchmark Scenarios**: Safe Copilot renewal, 5,000 AWS unit loop, DAN injection, `evil-aws.com` typosquatting, dual-custody escrow, and replay attack ([See Walkthrough](#6-how-to-test-the-6-benchmark-scenarios))
+
+---
+
 ## 1. Executive Summary & The Problem
 
 In 2026, autonomous agent frameworks exploded into enterprise production. Engineering teams deployed multi-agent swarms (Devin, Claude Code, Cursor, and custom AutoGen/LangChain workers) with programmatic authority to provision cloud servers, purchase SaaS licenses, and scrape web APIs.
