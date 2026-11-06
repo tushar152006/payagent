@@ -11,65 +11,76 @@
       padding: 0;
     }
     body {
-      background-color: #f1f5f9;
+      background-color: #060911;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 30px 20px;
+      padding: 24px 16px;
       min-height: 100vh;
+      color: #f1f5f9;
     }
     .toolbar {
       width: 100%;
-      max-width: 900px;
+      max-width: 1000px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 16px;
-      padding: 10px 16px;
+      padding: 12px 18px;
       background: #0f172a;
-      color: #ffffff;
+      border: 1px solid #1e293b;
       border-radius: 8px;
       font-size: 13px;
     }
     .toolbar-title {
-      font-weight: 600;
+      font-weight: 700;
       font-family: monospace;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      color: #38bdf8;
     }
     .toolbar-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
     .btn {
       background: #0284c7;
       color: #ffffff;
       border: none;
-      padding: 6px 14px;
+      padding: 7px 14px;
       border-radius: 6px;
       font-size: 12px;
       font-weight: 600;
       font-family: monospace;
       cursor: pointer;
       text-decoration: none;
-      transition: background 0.15s ease;
+      transition: all 0.15s ease;
     }
     .btn:hover {
       background: #0369a1;
     }
+    .btn-secondary {
+      background: #1e293b;
+      color: #cbd5e1;
+      border: 1px solid #334155;
+    }
+    .btn-secondary:hover {
+      background: #334155;
+      color: #ffffff;
+    }
     .diagram-container {
       width: 100%;
-      max-width: 900px;
-      background: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      max-width: 1000px;
+      background: #090d16;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
       overflow: hidden;
-      border: 1px solid #cbd5e1;
+      border: 1px solid #1e293b;
     }
-    svg {
+    img {
       display: block;
       width: 100%;
       height: auto;
@@ -80,18 +91,16 @@
 
   <div class="toolbar">
     <div class="toolbar-title">
-      <span>⚙️</span> PayAgent AI System Architecture Flowchart
+      <span style="font-size: 16px;">⚡</span> PayAgent AI Technical System Architecture
     </div>
     <div class="toolbar-actions">
-      <span style="color: #94a3b8; font-size: 11px;">Press Win + Shift + S to snip, or</span>
-      <button class="btn" onclick="downloadPNG()">Download PNG</button>
-      <a class="btn" style="background:#334155" href="/architecture.svg" download="architecture.svg">Download SVG</a>
+      <button class="btn" onclick="downloadPNG()">Download 2x PNG</button>
+      <a class="btn btn-secondary" href="/architecture.svg" download="architecture.svg">Save SVG</a>
     </div>
   </div>
 
   <div id="diagramContainer" class="diagram-container">
-    <!-- Inline SVG Diagram for crisp rendering -->
-    <img id="svgImg" src="/architecture.svg" alt="PayAgent AI Architecture Flowchart" style="width:100%; height:auto;" />
+    <img id="svgImg" src="/architecture.svg" alt="PayAgent AI Architecture Flowchart" />
   </div>
 
   <canvas id="hiddenCanvas" style="display:none;"></canvas>
@@ -102,10 +111,10 @@
       img.crossOrigin = "anonymous";
       img.onload = function() {
         const canvas = document.getElementById('hiddenCanvas');
-        canvas.width = 1800; // 2x high resolution
-        canvas.height = 2040;
+        canvas.width = 2000;
+        canvas.height = 2400;
         const ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#FFFFFF';
+        ctx.fillStyle = '#090D16';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         
