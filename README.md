@@ -119,8 +119,8 @@ Every tier of PayAgent AI is benchmarked against canonical computer science lite
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/your-username/payagent-ai.git
-cd payagent-ai
+git clone https://github.com/tushar152006/payagent.git
+cd payagent
 npm install
 ```
 
@@ -190,7 +190,6 @@ payagent-ai/
 │   ├── index.css                     # Tailwind design tokens & font settings
 │   └── main.tsx                      # React root entry
 ├── index.html                        # Google Fonts (Newsreader, Plus Jakarta Sans, JetBrains Mono)
-├── storyreadme.md                    # Master origin story, market sizing & literature
 ├── LICENSE                           # Open-source MIT License
 └── package.json                      # Scripts & dependencies
 ```
