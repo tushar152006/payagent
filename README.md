@@ -52,9 +52,45 @@ Instead:
 
 ## 3. Architecture Overview
 
-<p align="center">
-  <img src="public/architecture.svg" alt="PayAgent AI Architecture Flowchart" width="100%" />
-</p>
+```
+┌────────────────────────────────────────────────────────┐
+│             AUTONOMOUS AGENT INTENT                    │
+│    { agent: "agt_devops_01", merchant: "github.com" }  │
+└───────────────────────────┬────────────────────────────┘
+                            │
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│          PAYAGENT PRE-EXECUTION FIREWALL               │
+│                                                        │
+│  [GATE 01: SEMANTIC INTENT]                            │
+│  • Cosine vector alignment (Goal vs SKU)               │
+│  • 6-Engine Regex Suite: DAN, Overrides, Exfiltration  │
+│                                                        │
+│  [GATE 02: VENDOR AUTHENTICATION]                      │
+│  • FQDN allowlist + Levenshtein typosquat defense      │
+│                                                        │
+│  [GATE 03: BUDGET CEILINGS]                            │
+│  • Per-task cap + monthly ceiling + $0.00 slippage     │
+│                                                        │
+│  [GATE 04: VELOCITY & SMURFING BREAKER]                │
+│  • Rolling 60s frequency throttle (max 5 tx/min)       │
+│  • Rolling 10-min cumulative spend cap ($300 limit)    │
+└───────────────────────────┬────────────────────────────┘
+                            │
+             ┌──────────────┴──────────────┐
+             ▼                             ▼
+      [GATE FAILURE]                [ALL GATES PASS]
+             │                             │
+             ▼                             ▼
+  ┌──────────────────────┐      ┌──────────────────────┐
+  │  EMERGENCY FREEZE    │      │ EPHEMERAL PAYPAL     │
+  │  • Zero funds moved  │      │ ORDER V2 MINTED      │
+  │  • Token aborted     │      │ • 15-Minute TTL      │
+  │  • Forensic trace    │      │ • Single-use burn    │
+  │    logged in ledger  │      │ • $0.00 slippage     │
+  └──────────────────────┘      │ • 180-Day Guarantee  │
+                                └──────────────────────┘
+```
 
 ---
 
