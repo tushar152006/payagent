@@ -36,3 +36,13 @@ Thumbs.db
 .agents/
 .claude/
 UI files/
+
+# Internal Prep, Story & Submission Notes (Kept local, excluded from public repo)
+storyreadme.md
+MARKET_RESEARCH.md
+DESIGN.md
+DEVPOST_SUBMISSION.md
+VIDEO_DEMO_SCRIPT.md
+GEMINI.md
+
+
