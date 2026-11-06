@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #FAF9F5;
+  }
+  body {
+    @apply bg-[#FAF9F5] text-[#141413] font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  /* Tabular numbers for all monetary values, timestamps, and IDs */
+  .font-mono {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Tactile button compress interaction */
+.btn-tactile {
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.15s ease;
+}
+.btn-tactile:active {
+  transform: scale(0.975);
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8D2C7;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B5ADA1;
+}
