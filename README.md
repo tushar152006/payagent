@@ -53,52 +53,36 @@ Instead:
 ## 3. Architecture Overview
 
 <p align="center">
-  <img src="public/architecture.png" alt="PayAgent AI Architecture Diagram" width="100%" />
+  <img src="public/architecture.svg" alt="PayAgent AI Architecture Flowchart" width="100%" />
 </p>
 
-<details>
-<summary>📋 Click to view Text Architecture Flow (ASCII Spec)</summary>
+```mermaid
+flowchart TD
+    subgraph S1["1. AUTONOMOUS AGENT LAYER (Untrusted Zone)"]
+        A["Autonomous AI Agent\n(DevOps, Procurement, Web Scraper)"] -->|"POST /v1/intent\n(Zero static cards held)"| B["Pre-Execution Interception Envelope"]
+    end
 
+    subgraph S2["2. PAYAGENT DETERMINISTIC FIREWALL ENGINE (< 16ms)"]
+        B --> G1["Gate 01: Semantic Intent & Injection Defense\n(Cosine Distance >= 0.85 • DAN / Prompt Overrides Filtered)"]
+        G1 --> G2["Gate 02: Merchant Authentication & Typosquat Defense\n(Enterprise FQDN Allowlist • Levenshtein Distance Check)"]
+        G2 --> G3["Gate 03: Delegated Budget Ceilings & SKU Lock\n(Single-Tx Cap <= $100 • Monthly Ceiling • $0.00 Slippage)"]
+        G3 --> G4["Gate 04: Loop & Smurfing Circuit Breaker\n(Sliding 60s Throttle <= 5 tx/m • Rolling 10-Min Spend Velocity Cap)"]
+    end
+
+    G4 --> D{"All 4 Gates\nPassed?"}
+
+    D -->|"NO: Policy Violation"| E["EMERGENCY FREEZE\n• Zero capital moved (16ms abort)\n• Agent session paused to halt loop\n• Forensic trace logged in Audit Ledger"]
+    D -->|"YES: Verified Safe"| F["PAYPAL ORDERS V2 PROTOCOL\n• Ephemeral single-use authorization token\n• 15-Minute auto-destruct (TTL)\n• 180-Day PayPal Buyer Protection Net"]
+
+    F --> M["Merchant Order Fulfilled\n& Linearizable SHA-256 Receipt Minted"]
+
+    style S1 fill:#f8fafc,stroke:#94a3b8,stroke-width:1.5px
+    style S2 fill:#ffffff,stroke:#0f172a,stroke-width:2px
+    style D fill:#f8fafc,stroke:#0f172a,stroke-width:1.5px
+    style E fill:#fef2f2,stroke:#dc2626,stroke-width:2px
+    style F fill:#f0fdf4,stroke:#16a34a,stroke-width:2px
+    style M fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px
 ```
-┌────────────────────────────────────────────────────────┐
-│             AUTONOMOUS AGENT INTENT                    │
-│    { agent: "agt_devops_01", merchant: "github.com" }  │
-└───────────────────────────┬────────────────────────────┘
-                            │
-                            ▼
-┌────────────────────────────────────────────────────────┐
-│          PAYAGENT PRE-EXECUTION FIREWALL               │
-│                                                        │
-│  [GATE 01: SEMANTIC INTENT]                            │
-│  • Cosine vector alignment (Goal vs SKU)               │
-│  • 6-Engine Regex Suite: DAN, Overrides, Exfiltration  │
-│                                                        │
-│  [GATE 02: VENDOR AUTHENTICATION]                      │
-│  • FQDN allowlist + Levenshtein typosquat defense      │
-│                                                        │
-│  [GATE 03: BUDGET CEILINGS]                            │
-│  • Per-task cap + monthly ceiling + $0.00 slippage     │
-│                                                        │
-│  [GATE 04: VELOCITY & SMURFING BREAKER]                │
-│  • Rolling 60s frequency throttle (max 5 tx/min)       │
-│  • Rolling 10-min cumulative spend cap ($300 limit)    │
-└───────────────────────────┬────────────────────────────┘
-                            │
-             ┌──────────────┴──────────────┐
-             ▼                             ▼
-      [GATE FAILURE]                [ALL GATES PASS]
-             │                             │
-             ▼                             ▼
-  ┌──────────────────────┐      ┌──────────────────────┐
-  │  EMERGENCY FREEZE    │      │ EPHEMERAL PAYPAL     │
-  │  • Zero funds moved  │      │ ORDER V2 MINTED      │
-  │  • Token aborted     │      │ • 15-Minute TTL      │
-  │  • Forensic trace    │      │ • Single-use burn    │
-  │    logged in ledger  │      │ • $0.00 slippage     │
-  └──────────────────────┘      │ • 180-Day Guarantee  │
-                                └──────────────────────┘
-```
-</details>
 
 ---
 

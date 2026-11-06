@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1020" width="100%" height="100%" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+  <defs>
+    <!-- Arrow Markers -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#334155" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#16A34A" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#DC2626" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0284C7" />
+    </marker>
+
+    <!-- Subtle Background Dot Grid -->
+    <pattern id="grid-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#E2E8F0" />
+    </pattern>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="900" height="1020" fill="#FFFFFF" />
+  <rect width="900" height="1020" fill="url(#grid-dots)" />
+
+  <!-- Outer Border Container -->
+  <rect x="20" y="20" width="860" height="980" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+
+  <!-- Header Section -->
+  <g transform="translate(450, 58)" text-anchor="middle">
+    <text font-size="19" font-weight="700" fill="#0F172A" letter-spacing="-0.3">PAYAGENT AI — SYSTEM ARCHITECTURE FLOWCHART</text>
+    <text y="22" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748B">Deterministic Pre-Execution Spend Firewall &amp; Ephemeral Settlement Protocol</text>
+  </g>
+  <line x1="20" y1="95" x2="880" y2="95" stroke="#E2E8F0" stroke-width="1" />
+
+  <!-- ==================== 1. AUTONOMOUS AGENT LAYER ==================== -->
+  <g transform="translate(180, 115)">
+    <!-- Box -->
+    <rect width="540" height="72" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5" />
+    <!-- Node Label -->
+    <rect x="12" y="-10" width="220" height="20" rx="3" fill="#0F172A" />
+    <text x="122" y="4" font-size="10.5" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#FFFFFF" text-anchor="middle">1. AUTONOMOUS AGENT LAYER</text>
+    
+    <text x="20" y="28" font-size="12" font-weight="600" fill="#1E293B">Untrusted AI Entities (DevOps AutoScaler, Procurement Bot, Web Scraper)</text>
+    <text x="20" y="46" font-size="11" font-family="'JetBrains Mono', monospace" fill="#475569">POST /v1/intent { agent_id: "agt_01", merchant: "github.com", amount: 19.00 }</text>
+    <text x="20" y="62" font-size="10" fill="#94A3B8" font-style="italic">Constraint: Agents hold ZERO static credit cards or persistent credentials.</text>
+  </g>
+
+  <!-- Flow Arrow: Agent -> Firewall -->
+  <line x1="450" y1="187" x2="450" y2="225" stroke="#334155" stroke-width="1.75" marker-end="url(#arrow)" />
+  <rect x="300" y="196" width="300" height="18" rx="9" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+  <text x="450" y="209" font-size="9.5" font-family="'JetBrains Mono', monospace" font-weight="500" fill="#334155" text-anchor="middle">Pre-Execution Interception Envelope</text>
+
+  <!-- ==================== 2. DETERMINISTIC FIREWALL ENGINE ==================== -->
+  <g transform="translate(150, 230)">
+    <!-- Firewall Outer Boundary Box -->
+    <rect width="600" height="380" rx="8" fill="#FFFFFF" stroke="#0F172A" stroke-width="2" stroke-dasharray="none" />
+    
+    <!-- Firewall Header Pill -->
+    <rect x="16" y="-12" width="410" height="22" rx="4" fill="#0F172A" />
+    <text x="221" y="3" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#FFFFFF" text-anchor="middle">2. PAYAGENT DETERMINISTIC FIREWALL (Sub-16ms)</text>
+
+    <!-- Subtitle -->
+    <text x="20" y="26" font-size="11" fill="#64748B">Sequential Zero-Trust Pipeline: Fails closed on any policy anomaly</text>
+
+    <!-- Gate 01 -->
+    <g transform="translate(20, 36)">
+      <rect width="560" height="64" rx="5" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
+      <rect x="8" y="8" width="60" height="18" rx="3" fill="#E2E8F0" />
+      <text x="38" y="20.5" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1E293B" text-anchor="middle">GATE 01</text>
+      <text x="76" y="22" font-size="12" font-weight="600" fill="#0F172A">Semantic Intent &amp; Injection Defense</text>
+      <text x="12" y="42" font-size="11" fill="#475569">Cosine vector distance between assigned task goal and checkout SKU items (Cosine ≥ 0.85).</text>
+      <text x="12" y="56" font-size="10.5" font-family="'JetBrains Mono', monospace" fill="#0369A1">Filter: 6-Engine Regex halts DAN, system prompt overrides &amp; fund leaks.</text>
+    </g>
+
+    <!-- Connector Gate 1 -> Gate 2 -->
+    <line x1="300" y1="100" x2="300" y2="114" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)" />
+
+    <!-- Gate 02 -->
+    <g transform="translate(20, 118)">
+      <rect width="560" height="64" rx="5" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
+      <rect x="8" y="8" width="60" height="18" rx="3" fill="#E2E8F0" />
+      <text x="38" y="20.5" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1E293B" text-anchor="middle">GATE 02</text>
+      <text x="76" y="22" font-size="12" font-weight="600" fill="#0F172A">Merchant Authentication &amp; Typosquat Defense</text>
+      <text x="12" y="42" font-size="11" fill="#475569">Cross-checks target merchant domain against authorized enterprise vendor registry.</text>
+      <text x="12" y="56" font-size="10.5" font-family="'JetBrains Mono', monospace" fill="#0369A1">Filter: Levenshtein distance check blocks lookalike clone phishing (evil-aws.com).</text>
+    </g>
+
+    <!-- Connector Gate 2 -> Gate 3 -->
+    <line x1="300" y1="182" x2="300" y2="196" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)" />
+
+    <!-- Gate 03 -->
+    <g transform="translate(20, 200)">
+      <rect width="560" height="64" rx="5" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
+      <rect x="8" y="8" width="60" height="18" rx="3" fill="#E2E8F0" />
+      <text x="38" y="20.5" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1E293B" text-anchor="middle">GATE 03</text>
+      <text x="76" y="22" font-size="12" font-weight="600" fill="#0F172A">Delegated Budget Ceilings &amp; Slippage Lock</text>
+      <text x="12" y="42" font-size="11" fill="#475569">Evaluates single-transaction ceiling ($100 max) and cumulative monthly allocation.</text>
+      <text x="12" y="56" font-size="10.5" font-family="'JetBrains Mono', monospace" fill="#0369A1">Enforcement: Cryptographic SKU lock with $0.00 slippage tolerance.</text>
+    </g>
+
+    <!-- Connector Gate 3 -> Gate 4 -->
+    <line x1="300" y1="264" x2="300" y2="278" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)" />
+
+    <!-- Gate 04 -->
+    <g transform="translate(20, 282)">
+      <rect width="560" height="64" rx="5" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
+      <rect x="8" y="8" width="60" height="18" rx="3" fill="#E2E8F0" />
+      <text x="38" y="20.5" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1E293B" text-anchor="middle">GATE 04</text>
+      <text x="76" y="22" font-size="12" font-weight="600" fill="#0F172A">Loop &amp; Smurfing Circuit Breaker</text>
+      <text x="12" y="42" font-size="11" fill="#475569">Sliding 60-second frequency limiter halts recursive API loops (max 5 tx/min).</text>
+      <text x="12" y="56" font-size="10.5" font-family="'JetBrains Mono', monospace" fill="#0369A1">Throttle: Rolling 10-minute cumulative velocity cap prevents smurfing ($300 limit).</text>
+    </g>
+
+    <text x="580" y="366" font-size="10" font-family="'JetBrains Mono', monospace" fill="#94A3B8" text-anchor="end">Engine Latency: 14.2ms</text>
+  </g>
+
+  <!-- Flow Arrow: Firewall -> Decision Diamond -->
+  <line x1="450" y1="610" x2="450" y2="648" stroke="#334155" stroke-width="1.75" marker-end="url(#arrow)" />
+
+  <!-- ==================== 3. DECISION DIAMOND ==================== -->
+  <g transform="translate(450, 680)">
+    <!-- Diamond -->
+    <polygon points="0,-32 100,0 0,32 -100,0" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.75" />
+    <text y="-4" font-size="11" font-weight="700" fill="#0F172A" text-anchor="middle">ALL 4 GATES</text>
+    <text y="12" font-size="11" font-weight="700" fill="#0F172A" text-anchor="middle">PASSED?</text>
+  </g>
+
+  <!-- ==================== 4A. LEFT BRANCH (FAILURE: EMERGENCY FREEZE) ==================== -->
+  <!-- Connector Left -->
+  <path d="M 350 680 L 220 680 L 220 735" fill="none" stroke="#DC2626" stroke-width="2" marker-end="url(#arrow-red)" />
+  <rect x="235" y="663" width="105" height="18" rx="3" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1" />
+  <text x="287" y="676" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#DC2626" text-anchor="middle">[NO: VIOLATION]</text>
+
+  <g transform="translate(90, 740)">
+    <rect width="260" height="150" rx="6" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.75" />
+    <rect x="10" y="-10" width="165" height="20" rx="3" fill="#DC2626" />
+    <text x="92" y="4" font-size="10" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#FFFFFF" text-anchor="middle">EMERGENCY FREEZE</text>
+    
+    <text x="14" y="26" font-size="11.5" font-weight="700" fill="#991B1B">Deterministic Execution Halt</text>
+    <text x="14" y="46" font-size="11" fill="#7F1D1D">• Zero Capital Moved (16ms)</text>
+    <text x="14" y="64" font-size="11" fill="#7F1D1D">• Agent Session Key Revoked</text>
+    <text x="14" y="82" font-size="11" fill="#7F1D1D">• Rogue API Loop Aborted</text>
+    <text x="14" y="100" font-size="11" fill="#7F1D1D">• Forensic Audit Event Logged</text>
+    <text x="14" y="118" font-size="11" fill="#7F1D1D">• Optional Supervisory Escrow</text>
+    
+    <rect x="12" y="128" width="236" height="16" rx="3" fill="#FEE2E2" />
+    <text x="130" y="140" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#B91C1C" text-anchor="middle">STATUS: LEAK PREVENTED</text>
+  </g>
+
+  <!-- ==================== 4B. RIGHT BRANCH (SUCCESS: EPHEMERAL SETTLEMENT) ==================== -->
+  <!-- Connector Right -->
+  <path d="M 550 680 L 680 680 L 680 735" fill="none" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow-green)" />
+  <rect x="560" y="663" width="110" height="18" rx="3" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1" />
+  <text x="615" y="676" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#16A34A" text-anchor="middle">[YES: ALL PASS]</text>
+
+  <g transform="translate(550, 740)">
+    <rect width="260" height="150" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.75" />
+    <rect x="10" y="-10" width="195" height="20" rx="3" fill="#16A34A" />
+    <text x="107" y="4" font-size="10" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#FFFFFF" text-anchor="middle">PAYPAL ORDERS V2 ENGINE</text>
+    
+    <text x="14" y="26" font-size="11.5" font-weight="700" fill="#14532D">Ephemeral Settlement Minted</text>
+    <text x="14" y="46" font-size="11" fill="#166534">• Single-Use Scoped Auth Token</text>
+    <text x="14" y="64" font-size="11" fill="#166534">• 15-Minute Auto-Destruct (TTL)</text>
+    <text x="14" y="82" font-size="11" fill="#166534">• Exact Amount Lock ($0.00 Slippage)</text>
+    <text x="14" y="100" font-size="11" fill="#166534">• Cryptographic SKU &amp; FQDN Bind</text>
+    <text x="14" y="118" font-size="11" fill="#166534">• 180-Day Buyer Protection Net</text>
+    
+    <rect x="12" y="128" width="236" height="16" rx="3" fill="#DCFCE7" />
+    <text x="130" y="140" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#15803D" text-anchor="middle">STATUS: SETTLED VIA PAYPAL V2</text>
+  </g>
+
+  <!-- Down Arrow to Final Output -->
+  <line x1="680" y1="890" x2="680" y2="920" stroke="#16A34A" stroke-width="1.75" marker-end="url(#arrow-green)" />
+
+  <!-- Final Output Box -->
+  <g transform="translate(550, 925)">
+    <rect width="260" height="42" rx="5" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.25" />
+    <text x="130" y="18" font-size="11" font-weight="600" fill="#0F172A" text-anchor="middle">Merchant Order Fulfilled</text>
+    <text x="130" y="32" font-size="9.5" font-family="'JetBrains Mono', monospace" fill="#64748B" text-anchor="middle">Audit Ledger Receipt Stamped (SHA-256)</text>
+  </g>
+
+  <!-- ==================== FOOTER SPECIFICATIONS ==================== -->
+  <g transform="translate(450, 988)" text-anchor="middle">
+    <text font-size="10" font-family="'JetBrains Mono', monospace" fill="#94A3B8">
+      Foundations: Kleppmann (DDIA Idempotency) • Nygard (Release It! Circuit Breakers) • Google SRE Zero-Trust • OWASP LLM01/06
+    </text>
+  </g>
+
+</svg>
