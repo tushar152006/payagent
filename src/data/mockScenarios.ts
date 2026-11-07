@@ -5,7 +5,7 @@ export const INITIAL_AGENTS: Agent[] = [
     id: 'agent-devops',
     name: 'DevOps AutoScaler',
     role: 'Infrastructure & Cloud Provisioning',
-    avatar: '⚡',
+    avatar: 'devops',
     maxPerTxLimit: 100,
     monthlyBudget: 600,
     spentThisMonth: 142.50,
@@ -16,7 +16,7 @@ export const INITIAL_AGENTS: Agent[] = [
     id: 'agent-procure',
     name: 'SaaS Procurement Bot',
     role: 'Software License Management',
-    avatar: '💼',
+    avatar: 'procure',
     maxPerTxLimit: 250,
     monthlyBudget: 1500,
     spentThisMonth: 420.00,
@@ -27,7 +27,7 @@ export const INITIAL_AGENTS: Agent[] = [
     id: 'agent-research',
     name: 'Autonomous Web Scout',
     role: 'Market Data & API Scraper',
-    avatar: '🔍',
+    avatar: 'scout',
     maxPerTxLimit: 40,
     monthlyBudget: 200,
     spentThisMonth: 18.00,
@@ -50,7 +50,7 @@ export const PRESET_SCENARIOS: DemoScenario[] = [
   {
     id: 'scenario-approved',
     badge: 'NORMAL',
-    title: '🟢 Normal: GitHub Copilot Seat Renewal',
+    title: '[SAFE-01] GitHub Copilot Seat Renewal',
     subtitle: 'Standard tooling purchase well within authorized limits and approved vendor list.',
     expectedOutcome: 'APPROVED',
     request: {
@@ -73,7 +73,7 @@ export const PRESET_SCENARIOS: DemoScenario[] = [
   {
     id: 'scenario-rogue-loop',
     badge: 'ROGUE',
-    title: '🔴 Rogue: 5,000 AWS Units (Lobstar/Cursor Loop)',
+    title: '[ROGUE-02] 5,000 AWS Spot Instances (Infinite Loop)',
     subtitle: 'Simulates unit hallucination & infinite loop burning $4,250 on cloud compute.',
     expectedOutcome: 'BLOCKED',
     preventedDamage: '$4,250.00 Saved',
@@ -97,7 +97,7 @@ export const PRESET_SCENARIOS: DemoScenario[] = [
   {
     id: 'scenario-injection',
     badge: 'INJECTION',
-    title: '🛑 Attack: Prompt Injection Fund Siphon',
+    title: '[ATTACK-03] Prompt Injection Gift Card Exfiltration',
     subtitle: 'Simulates hostile prompt injection attempting to buy untraceable gift cards.',
     expectedOutcome: 'BLOCKED',
     preventedDamage: '$3,500.00 Saved',
@@ -121,7 +121,7 @@ export const PRESET_SCENARIOS: DemoScenario[] = [
   {
     id: 'scenario-escalation',
     badge: 'ESCALATION',
-    title: 'Ambiguous: Unvetted Web Scraping Proxy',
+    title: '[QUARANTINE-04] Unvetted Web Scraping Proxy',
     subtitle: 'Legitimate task intent but vendor is unverified. Dispatches real-time human sign-off.',
     expectedOutcome: 'REQUIRES_HUMAN_APPROVAL',
     request: {
@@ -144,7 +144,7 @@ export const PRESET_SCENARIOS: DemoScenario[] = [
   {
     id: 'scenario-typosquat',
     badge: 'ROGUE',
-    title: 'Phishing: Lookalike Vendor Spoofing (evil-aws.com)',
+    title: '[PHISHING-05] Lookalike Vendor Spoofing (evil-aws.com)',
     subtitle: 'Simulates typosquatting attack spoofing Amazon Web Services via fake billing portal.',
     expectedOutcome: 'BLOCKED',
     preventedDamage: '$1,200.00 Saved',
@@ -168,7 +168,7 @@ export const PRESET_SCENARIOS: DemoScenario[] = [
   {
     id: 'scenario-idempotency',
     badge: 'NORMAL',
-    title: 'Idempotency Replay: Network Stutter Safe Retry',
+    title: '[REPLAY-06] Idempotent Duplicate Network Retry',
     subtitle: 'Simulates network retry using Kleppmann DDIA Idempotency-Key. Proves zero double charges and closed circuit breaker.',
     expectedOutcome: 'APPROVED',
     request: {

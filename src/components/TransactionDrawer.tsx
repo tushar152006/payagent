@@ -22,7 +22,7 @@ export const TransactionDrawer: React.FC<TransactionDrawerProps> = ({
       onClick={onClose}
     >
       <div 
-        className="w-full max-w-lg bg-white h-full shadow-2xl border-l border-[#E8E3D9] p-6 flex flex-col justify-between overflow-y-auto"
+        className="w-full max-w-lg bg-white h-full shadow-2xl border-l border-[#E5E0D8] p-6 flex flex-col justify-between overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="space-y-6">
@@ -85,7 +85,7 @@ export const TransactionDrawer: React.FC<TransactionDrawerProps> = ({
             <span className="text-[11px] font-bold text-[#8C8275] uppercase tracking-wider font-sans">
               Deterministic Firewall Reason
             </span>
-            <p className="p-3 rounded-lg bg-[#FAF9F5] border border-[#E8E3D9] text-xs text-[#433D35] leading-relaxed">
+            <p className="p-3 rounded-lg bg-[#FAF9F5] border border-[#E5E0D8] text-xs text-[#433D35] leading-relaxed">
               {record.verification.decisionReason}
             </p>
           </div>
@@ -143,7 +143,7 @@ export const TransactionDrawer: React.FC<TransactionDrawerProps> = ({
           </div>
 
           {/* Transaction Metadata */}
-          <div className="p-4 rounded-xl bg-[#FAF9F5] border border-[#E8E3D9] space-y-2.5 text-xs font-mono">
+          <div className="p-4 rounded-xl bg-[#FAF9F5] border border-[#E5E0D8] space-y-2.5 text-xs font-mono">
             <div className="flex justify-between">
               <span className="text-[#8C8275]">Agent Entity:</span>
               <strong className="text-[#141413]">{record.request.agentName}</strong>
@@ -172,7 +172,7 @@ export const TransactionDrawer: React.FC<TransactionDrawerProps> = ({
               <span className="text-[11px] font-bold text-[#8C8275] uppercase tracking-wider block mb-1 font-sans">
                 Stated Intent Goal
               </span>
-              <p className="p-3 rounded-lg bg-[#FAF9F5] border border-[#E8E3D9] text-[#141413] italic">
+              <p className="p-3 rounded-lg bg-[#FAF9F5] border border-[#E5E0D8] text-[#141413] italic">
                 "{record.request.taskGoal}"
               </p>
             </div>
@@ -181,7 +181,7 @@ export const TransactionDrawer: React.FC<TransactionDrawerProps> = ({
               <span className="text-[11px] font-bold text-[#8C8275] uppercase tracking-wider block mb-1 font-sans">
                 Agent Chain-of-Thought / Prompt Excerpt
               </span>
-              <p className="p-3 rounded-lg bg-[#FAF9F5] border border-[#E8E3D9] text-[#5F574D] font-mono text-[11px] leading-relaxed">
+              <p className="p-3 rounded-lg bg-[#FAF9F5] border border-[#E5E0D8] text-[#5F574D] font-mono text-[11px] leading-relaxed">
                 {record.request.rawPromptExcerpt}
               </p>
             </div>
@@ -190,7 +190,7 @@ export const TransactionDrawer: React.FC<TransactionDrawerProps> = ({
           {/* PayPal Settlement Details */}
           {record.paypalReceipt && (
             <div className="p-4 rounded-xl bg-gradient-to-br from-[#EBF4FA] to-white border border-[#0070BA]/30 space-y-2.5 text-xs font-mono">
-              <div className="flex items-center justify-between border-b border-[#E8E3D9] pb-2">
+              <div className="flex items-center justify-between border-b border-[#E5E0D8] pb-2">
                 <span className="font-bold text-[#003087] uppercase text-[11px]">PayPal Settlement Details</span>
                 <span className="text-[10px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded border border-emerald-200">
                   CAPTURED
@@ -216,7 +216,7 @@ export const TransactionDrawer: React.FC<TransactionDrawerProps> = ({
                   <span className="text-emerald-700 font-semibold">{record.paypalReceipt.slippageTolerance}</span>
                 </div>
               )}
-              <div className="pt-2 border-t border-[#E8E3D9] text-[11px] text-[#433D35] flex items-center gap-1.5 font-sans">
+              <div className="pt-2 border-t border-[#E5E0D8] text-[11px] text-[#433D35] flex items-center gap-1.5 font-sans">
                 <Lock className="w-3.5 h-3.5 text-emerald-600" />
                 <span>180-Day Global Buyer Protection Active</span>
               </div>
@@ -226,10 +226,10 @@ export const TransactionDrawer: React.FC<TransactionDrawerProps> = ({
         </div>
 
         {/* Footer Close */}
-        <div className="pt-4 border-t border-[#E8E3D9] mt-6">
+        <div className="pt-4 border-t border-[#E5E0D8] mt-6">
           <button
             onClick={onClose}
-            className="w-full py-2.5 rounded-lg bg-[#FAF9F5] hover:bg-[#F1EFEA] text-[#141413] border border-[#E8E3D9] font-bold text-xs transition btn-tactile shadow-2xs"
+            className="w-full py-2.5 rounded-lg bg-[#FAF9F5] hover:bg-[#F1EFEA] text-[#141413] border border-[#E5E0D8] font-bold text-xs transition btn-tactile shadow-2xs"
           >
             Close Forensic Inspector
           </button>

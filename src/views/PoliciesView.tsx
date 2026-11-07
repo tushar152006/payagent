@@ -35,7 +35,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
     <div className="space-y-6 max-w-4xl mx-auto animate-fade-in">
       
       {/* Page Header */}
-      <div className="border-b border-[#E8E3D9] pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div className="border-b border-[#E5E0D8] pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h1 className="text-xl font-serif font-bold text-[#141413] tracking-tight">Firewall Security Policies</h1>
           <p className="text-xs text-[#8C8275]">
@@ -52,7 +52,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
       <form onSubmit={handleSave} className="space-y-6">
         
         {/* Section 1: Velocity & Smurfing Circuit Breaker */}
-        <div className="bg-white p-6 rounded-xl border border-[#E8E3D9] shadow-2xs space-y-4">
+        <div className="bg-white p-6 rounded-xl border border-[#E5E0D8] shadow-2xs space-y-4">
           <div className="flex items-center space-x-3 border-b border-[#F1EFEA] pb-3">
             <div className="p-2 rounded-lg bg-rose-50 text-rose-600 border border-rose-200">
               <AlertTriangle className="w-5 h-5" />
@@ -64,10 +64,10 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-            <div className="space-y-2 p-3.5 rounded-lg bg-[#FAF9F5] border border-[#E8E3D9]">
+            <div className="space-y-2 p-3.5 rounded-lg bg-[#FAF9F5] border border-[#E5E0D8]">
               <div className="flex items-center justify-between">
                 <label className="font-semibold text-[#141413]">Max Transactions per 60 Seconds</label>
-                <span className="font-mono font-bold text-[#003087] text-xs bg-white border border-[#E8E3D9] px-2 py-0.5 rounded tabular-nums">
+                <span className="font-mono font-bold text-[#003087] text-xs bg-white border border-[#E5E0D8] px-2 py-0.5 rounded tabular-nums">
                   {velocityLimit} tx / min
                 </span>
               </div>
@@ -84,10 +84,10 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
               </p>
             </div>
 
-            <div className="space-y-2 p-3.5 rounded-lg bg-[#FAF9F5] border border-[#E8E3D9]">
+            <div className="space-y-2 p-3.5 rounded-lg bg-[#FAF9F5] border border-[#E5E0D8]">
               <div className="flex items-center justify-between">
                 <label className="font-semibold text-[#141413]">Rolling 10-Min Smurfing Cap</label>
-                <span className="font-mono font-bold text-[#003087] text-xs bg-white border border-[#E8E3D9] px-2 py-0.5 rounded tabular-nums">
+                <span className="font-mono font-bold text-[#003087] text-xs bg-white border border-[#E5E0D8] px-2 py-0.5 rounded tabular-nums">
                   ${maxRollingSpend} USD
                 </span>
               </div>
@@ -108,7 +108,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
         </div>
 
         {/* Section 2: Semantic Intent Sensitivity */}
-        <div className="bg-white p-6 rounded-xl border border-[#E8E3D9] shadow-2xs space-y-4">
+        <div className="bg-white p-6 rounded-xl border border-[#E5E0D8] shadow-2xs space-y-4">
           <div className="flex items-center space-x-3 border-b border-[#F1EFEA] pb-3">
             <div className="p-2 rounded-lg bg-[#EBF4FA] text-[#003087] border border-[#0070BA]/20">
               <ShieldCheck className="w-5 h-5" />
@@ -131,7 +131,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
                 className={`p-4 rounded-xl border cursor-pointer transition flex flex-col justify-between btn-tactile ${
                   semanticMode === mode.id
                     ? 'bg-[#FAF9F5] border-[#003087] ring-1 ring-[#003087] shadow-2xs'
-                    : 'bg-white border-[#E8E3D9] hover:border-[#D5CCBD]'
+                    : 'bg-white border-[#E5E0D8] hover:border-[#D5CCBD]'
                 }`}
               >
                 <div>
@@ -147,9 +147,9 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
         </div>
 
         {/* Section 3: Vendor Whitelist Enforcement & Spoofing Defense */}
-        <div className="bg-white p-6 rounded-xl border border-[#E8E3D9] shadow-2xs space-y-4">
+        <div className="bg-white p-6 rounded-xl border border-[#E5E0D8] shadow-2xs space-y-4">
           <div className="flex items-center space-x-3 border-b border-[#F1EFEA] pb-3">
-            <div className="p-2 rounded-lg bg-[#FAF9F5] text-[#433D35] border border-[#E8E3D9]">
+            <div className="p-2 rounded-lg bg-[#FAF9F5] text-[#433D35] border border-[#E5E0D8]">
               <Sliders className="w-5 h-5" />
             </div>
             <div>
@@ -164,7 +164,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
               className={`p-4 rounded-xl border cursor-pointer transition btn-tactile ${
                 vendorMode === 'escalate'
                   ? 'bg-[#FFFBEB] border-amber-300 ring-1 ring-amber-400 shadow-2xs'
-                  : 'bg-white border-[#E8E3D9] hover:border-[#D5CCBD]'
+                  : 'bg-white border-[#E5E0D8] hover:border-[#D5CCBD]'
               }`}
             >
               <div className="flex items-center justify-between mb-1">
@@ -181,7 +181,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
               className={`p-4 rounded-xl border cursor-pointer transition btn-tactile ${
                 vendorMode === 'block'
                   ? 'bg-[#FFF5F5] border-rose-300 ring-1 ring-rose-400 shadow-2xs'
-                  : 'bg-white border-[#E8E3D9] hover:border-[#D5CCBD]'
+                  : 'bg-white border-[#E5E0D8] hover:border-[#D5CCBD]'
               }`}
             >
               <div className="flex items-center justify-between mb-1">
@@ -196,7 +196,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
         </div>
 
         {/* Section 4: PayPal Settlement Settings & SKU Lock */}
-        <div className="bg-white p-6 rounded-xl border border-[#E8E3D9] shadow-2xs space-y-4">
+        <div className="bg-white p-6 rounded-xl border border-[#E5E0D8] shadow-2xs space-y-4">
           <div className="flex items-center space-x-3 border-b border-[#F1EFEA] pb-3">
             <div className="p-2 rounded-lg bg-[#EBF4FA] text-[#003087] border border-[#0070BA]/20">
               <Lock className="w-5 h-5" />
@@ -208,7 +208,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
           </div>
 
           <div className="space-y-4 text-xs">
-            <div className="flex items-center justify-between p-4 rounded-xl bg-[#FAF9F5] border border-[#E8E3D9]">
+            <div className="flex items-center justify-between p-4 rounded-xl bg-[#FAF9F5] border border-[#E5E0D8]">
               <div>
                 <strong className="text-[#141413] block font-semibold">180-Day Buyer Protection Program</strong>
                 <p className="text-[#5F574D]">Attaches dispute defense and purchase guarantee tokens to every single-use PayPal transaction.</p>
@@ -217,7 +217,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
                 type="checkbox"
                 checked={enable180Day}
                 onChange={(e) => setEnable180Day(e.target.checked)}
-                className="w-5 h-5 text-[#003087] rounded border-[#E8E3D9] cursor-pointer"
+                className="w-5 h-5 text-[#003087] rounded border-[#E5E0D8] cursor-pointer"
               />
             </div>
 
@@ -228,7 +228,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
                   type="text"
                   readOnly
                   value="$0.00 USD (Strict Zero Slippage Lock)"
-                  className="w-full bg-[#FAF9F5] border border-[#E8E3D9] rounded-lg px-3 py-2 text-[#433D35] font-mono text-xs cursor-not-allowed"
+                  className="w-full bg-[#FAF9F5] border border-[#E5E0D8] rounded-lg px-3 py-2 text-[#433D35] font-mono text-xs cursor-not-allowed"
                 />
               </div>
               <div>
@@ -237,7 +237,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
                   type="text"
                   readOnly
                   value="PayPal Agentic Commerce Protocol v2.4 (JIT Scoped)"
-                  className="w-full bg-[#FAF9F5] border border-[#E8E3D9] rounded-lg px-3 py-2 text-[#433D35] font-mono text-xs cursor-not-allowed"
+                  className="w-full bg-[#FAF9F5] border border-[#E5E0D8] rounded-lg px-3 py-2 text-[#433D35] font-mono text-xs cursor-not-allowed"
                 />
               </div>
             </div>
@@ -247,8 +247,8 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
         {/* Save Button */}
         <div className="flex items-center justify-between pt-2">
           {savedSuccess ? (
-            <span className="text-xs font-bold text-emerald-700 flex items-center gap-1.5 animate-bounce">
-              <Check className="w-4 h-4" /> Policies updated successfully and deployed to firewall edge!
+            <span className="text-xs font-bold text-[#065F46] bg-[#ECFDF5] px-3 py-1.5 rounded-lg border border-[#A7F3D0] flex items-center gap-1.5 animate-stamp-pop">
+              <Check className="w-4 h-4 text-[#065F46]" /> Policies updated and deployed to firewall edge
             </span>
           ) : (
             <span className="text-xs text-[#8C8275]">Rules deploy deterministically across all active agent sessions</span>

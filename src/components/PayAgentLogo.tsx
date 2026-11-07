@@ -70,3 +70,4 @@ export const PayAgentLogo: React.FC<PayAgentLogoProps> = ({
 
   return svgContent;
 };
+

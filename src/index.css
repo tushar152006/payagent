@@ -25,6 +25,44 @@
   transform: scale(0.975);
 }
 
+/* Mechanical Gate Circuit Breaker Shake */
+@keyframes gateShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+.animate-gate-shake {
+  animation: gateShake 0.35s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Crisp Stamped Seal Pop */
+@keyframes stampPop {
+  0% { transform: scale(0.92); opacity: 0; }
+  70% { transform: scale(1.03); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-stamp-pop {
+  animation: stampPop 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Shimmer pass for voucher card */
+@keyframes shimmerPass {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+.animate-shimmer {
+  animation: shimmerPass 2.5s infinite linear;
+}
+
+/* Radar pulse for live firewall status */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.2); }
+}
+.animate-pulse-dot {
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
 /* Custom subtle scrollbars */
 ::-webkit-scrollbar {
   width: 5px;

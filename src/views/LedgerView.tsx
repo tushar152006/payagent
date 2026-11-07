@@ -53,7 +53,7 @@ export const LedgerView: React.FC<LedgerViewProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-xl border border-[#E8E3D9] shadow-2xs p-5 sm:p-6 space-y-5 animate-fade-in">
+    <div className="bg-white rounded-xl border border-[#E5E0D8] shadow-2xs p-5 sm:p-6 space-y-5 animate-fade-in">
       
       {/* Header and Controls */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#F1EFEA] pb-4">
@@ -68,21 +68,21 @@ export const LedgerView: React.FC<LedgerViewProps> = ({
           {/* Export Button */}
           <button
             onClick={handleExportCSV}
-            className="px-3 py-1.5 rounded-lg border border-[#E8E3D9] bg-[#FAF9F5] hover:bg-[#F1EFEA] text-xs font-semibold text-[#433D35] flex items-center gap-1.5 transition btn-tactile shadow-2xs"
+            className="px-3 py-1.5 rounded-lg border border-[#E5E0D8] bg-[#FAF9F5] hover:bg-[#F1EFEA] text-xs font-semibold text-[#433D35] flex items-center gap-1.5 transition btn-tactile shadow-2xs"
           >
             <Download className="w-3.5 h-3.5 text-[#8C8275]" />
             Export CSV
           </button>
 
           {/* Filter Pills */}
-          <div className="flex items-center space-x-1 bg-[#FAF9F5] p-1 rounded-xl border border-[#E8E3D9] text-xs font-mono">
+          <div className="flex items-center space-x-1 bg-[#FAF9F5] p-1 rounded-xl border border-[#E5E0D8] text-xs font-mono">
             {(['ALL', 'APPROVED', 'BLOCKED', 'REQUIRES_HUMAN_APPROVAL'] as const).map(tab => (
               <button
                 key={tab}
                 onClick={() => setFilter(tab)}
                 className={`px-2.5 py-1 rounded-lg font-semibold transition btn-tactile ${
                   filter === tab
-                    ? 'bg-white text-[#141413] shadow-2xs border border-[#E8E3D9]'
+                    ? 'bg-white text-[#141413] shadow-2xs border border-[#E5E0D8]'
                     : 'text-[#8C8275] hover:text-[#141413]'
                 }`}
               >
@@ -101,7 +101,7 @@ export const LedgerView: React.FC<LedgerViewProps> = ({
           placeholder="Search ledger by agent name, merchant domain, SKU, or PayPal Order ID..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full bg-[#FAF9F5] border border-[#E8E3D9] rounded-xl pl-10 pr-4 py-2 text-xs text-[#141413] placeholder-[#8C8275] focus:outline-none focus:border-[#0070BA] shadow-2xs"
+          className="w-full bg-[#FAF9F5] border border-[#E5E0D8] rounded-xl pl-10 pr-4 py-2 text-xs text-[#141413] placeholder-[#8C8275] focus:outline-none focus:border-[#0070BA] shadow-2xs"
         />
       </div>
 
@@ -109,7 +109,7 @@ export const LedgerView: React.FC<LedgerViewProps> = ({
       <div className="overflow-x-auto">
         <table className="w-full text-left text-xs">
           <thead>
-            <tr className="border-b border-[#E8E3D9] text-[#8C8275] text-[10px] uppercase font-mono tracking-wider">
+            <tr className="border-b border-[#E5E0D8] text-[#8C8275] text-[10px] uppercase font-mono tracking-wider">
               <th className="pb-3 font-semibold">Timestamp</th>
               <th className="pb-3 font-semibold">Autonomous Entity</th>
               <th className="pb-3 font-semibold">Merchant / SKU Purpose</th>

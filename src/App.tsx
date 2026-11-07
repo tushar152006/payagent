@@ -12,6 +12,7 @@ import { LedgerView } from './views/LedgerView';
 import { PoliciesView } from './views/PoliciesView';
 import { HumanApprovalModal } from './components/HumanApprovalModal';
 import { TransactionDrawer } from './components/TransactionDrawer';
+import { audioTactile } from './utils/audioTactile';
 
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<NavTab>('dashboard');
@@ -147,6 +148,7 @@ export const App: React.FC = () => {
     let preventedAmount = 0;
 
     if (result.overallStatus === 'APPROVED') {
+      audioTactile.playSettlementChime();
       if (!result.isIdempotentReplay) {
         receipt = await paypalService.executeScopedSettlement(request);
         setPaypalReceipt(receipt);
@@ -163,8 +165,10 @@ export const App: React.FC = () => {
         setPaypalReceipt(receipt);
       }
     } else if (result.overallStatus === 'BLOCKED') {
+      audioTactile.playBreakerTrip();
       preventedAmount = request.amount;
     } else if (result.overallStatus === 'REQUIRES_HUMAN_APPROVAL') {
+      audioTactile.playClick();
       setIsApprovalModalOpen(true);
     }
 
@@ -256,13 +260,40 @@ export const App: React.FC = () => {
     }
   };
 
+  // Keyboard navigation shortcuts [1] - [5] for judges
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+        return;
+      }
+      const switchTab = (tab: NavTab) => {
+        audioTactile.playClick();
+        setActiveTab(tab);
+      };
+
+      if (e.key === '1') switchTab('dashboard');
+      if (e.key === '2') switchTab('simulator');
+      if (e.key === '3') switchTab('agents');
+      if (e.key === '4') switchTab('ledger');
+      if (e.key === '5') switchTab('policies');
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  const handleTabSelect = (tab: NavTab) => {
+    audioTactile.playClick();
+    setActiveTab(tab);
+  };
+
   return (
     <div className="min-h-screen bg-[#FAF9F5] text-[#141413] flex flex-col font-sans selection:bg-[#003087]/15 selection:text-[#003087]">
       
       {/* Enterprise Multi-Tab Navbar */}
       <Navbar
         activeTab={activeTab}
-        onTabChange={setActiveTab}
+        onTabChange={handleTabSelect}
         preventedLoss={stats.totalPreventedLoss}
         settledAmount={stats.totalProcessedPayPal}
       />

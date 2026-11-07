@@ -22,7 +22,7 @@ export const HumanApprovalModal: React.FC<HumanApprovalModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-fade-in">
       <div 
-        className="w-full max-w-lg p-6 rounded-2xl bg-white border border-[#E8E3D9] shadow-2xl space-y-5"
+        className="w-full max-w-lg p-6 rounded-2xl bg-white border border-[#E5E0D8] shadow-2xl space-y-5"
         onClick={(e) => e.stopPropagation()}
       >
         
@@ -51,7 +51,7 @@ export const HumanApprovalModal: React.FC<HumanApprovalModalProps> = ({
 
         {/* Transaction Summary */}
         <div className="space-y-3 text-xs">
-          <div className="p-4 rounded-xl bg-[#FAF9F5] border border-[#E8E3D9] space-y-2">
+          <div className="p-4 rounded-xl bg-[#FAF9F5] border border-[#E5E0D8] space-y-2">
             <div className="flex justify-between items-center font-mono">
               <span className="text-[#8C8275]">REQUESTING AGENT:</span>
               <strong className="text-[#141413] font-bold">{request.agentName}</strong>
@@ -70,7 +70,7 @@ export const HumanApprovalModal: React.FC<HumanApprovalModalProps> = ({
             <label className="text-[10px] font-mono uppercase tracking-wider text-[#8C8275] block mb-1 font-semibold">
               Assigned Task Goal
             </label>
-            <p className="p-2.5 rounded-lg bg-[#FAF9F5] text-[#141413] border border-[#E8E3D9] italic font-serif text-xs">
+            <p className="p-2.5 rounded-lg bg-[#FAF9F5] text-[#141413] border border-[#E5E0D8] italic font-serif text-xs">
               "{request.taskGoal}"
             </p>
           </div>
@@ -79,7 +79,7 @@ export const HumanApprovalModal: React.FC<HumanApprovalModalProps> = ({
             <label className="text-[10px] font-mono uppercase tracking-wider text-[#8C8275] block mb-1 font-semibold">
               Agent Reasoning Trace
             </label>
-            <p className="p-2.5 rounded-lg bg-[#FAF9F5] text-[#5F574D] border border-[#E8E3D9] font-mono text-[11px] leading-relaxed">
+            <p className="p-2.5 rounded-lg bg-[#FAF9F5] text-[#5F574D] border border-[#E5E0D8] font-mono text-[11px] leading-relaxed">
               {request.rawPromptExcerpt}
             </p>
           </div>
@@ -95,7 +95,7 @@ export const HumanApprovalModal: React.FC<HumanApprovalModalProps> = ({
         <div className="flex items-center justify-end space-x-3 pt-3 border-t border-[#F1EFEA]">
           <button
             onClick={() => onReject(request)}
-            className="px-4 py-2 rounded-lg border border-[#E8E3D9] bg-white hover:bg-rose-50 text-rose-700 font-mono text-xs font-semibold flex items-center gap-1.5 transition btn-tactile shadow-2xs"
+            className="px-4 py-2 rounded-lg border border-[#E5E0D8] bg-white hover:bg-rose-50 text-rose-700 font-mono text-xs font-semibold flex items-center gap-1.5 transition btn-tactile shadow-2xs"
           >
             <XCircle className="w-4 h-4" />
             Reject Transaction
