@@ -1,6 +1,7 @@
 import React from 'react';
-import { ShieldCheck, ShieldAlert, Lock, CheckCircle2, Building2 } from 'lucide-react';
+import { ShieldCheck, ShieldAlert, Lock, CheckCircle2 } from 'lucide-react';
 import { SystemStats } from '../types';
+import { PayAgentLogo } from './PayAgentLogo';
 
 interface HeaderProps {
   stats: SystemStats;
@@ -14,8 +15,8 @@ export const Header: React.FC<HeaderProps> = ({ stats }) => {
           
           {/* Brand Seal & Monogram */}
           <div className="flex items-center space-x-3.5">
-            <div className="w-9 h-9 rounded border border-[#141413] bg-[#FAF9F5] flex items-center justify-center text-[#141413] shadow-paper-sm">
-              <Building2 className="w-5 h-5 stroke-[1.6]" />
+            <div className="w-9 h-9 rounded-lg border border-[#1E293B] bg-[#090D16] flex items-center justify-center p-1.5 shadow-sm ring-1 ring-white/10 shrink-0">
+              <PayAgentLogo theme="dark" className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center space-x-2">

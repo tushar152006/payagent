@@ -11,6 +11,7 @@ import {
   Activity,
   Layers
 } from 'lucide-react';
+import { PayAgentLogo } from './PayAgentLogo';
 
 export type NavTab = 'dashboard' | 'simulator' | 'agents' | 'ledger' | 'policies';
 
@@ -44,8 +45,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           
           {/* Logo & Product Identity */}
           <div className="flex items-center space-x-3.5">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#0070BA] to-[#003087] flex items-center justify-center text-white shadow-sm ring-1 ring-white/10">
-              <ShieldCheck className="w-5 h-5 stroke-[2.2]" />
+            <div className="w-9 h-9 rounded-lg bg-[#0A1128] border border-cyan-500/30 flex items-center justify-center p-1.5 shadow-sm ring-1 ring-white/10 shrink-0">
+              <PayAgentLogo theme="dark" className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center space-x-2">
